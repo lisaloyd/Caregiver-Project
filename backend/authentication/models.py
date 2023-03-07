@@ -13,5 +13,5 @@ class User(AbstractUser):
     '''
     # Example (note import of models above that is commented out)
     # this will add a column to the user table
-    is_client = models.BooleanField('student status', default=False)
+    is_client = models.BooleanField('client status', default=False)
     is_contractor = models.BooleanField('contractor status', default=False)

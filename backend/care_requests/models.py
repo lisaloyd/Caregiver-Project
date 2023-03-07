@@ -1,0 +1,9 @@
+from django.db import models
+from authentication.models import User
+
+# Create your models here.
+class Care_Request(models.Model):
+    client_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="client")
+    contractor_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="contractor")
+    zipcode = models.IntegerField()
+    type_of_care = models.CharField(max_length=250)

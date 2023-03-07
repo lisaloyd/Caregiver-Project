@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     'corsheaders',
     'cars.apps.CarsConfig',
+    'care_requests',
+    'notes',
      # This app is for example use only
 
 ]

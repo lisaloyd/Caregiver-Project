@@ -15,13 +15,13 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Car',
+            name='Care_Request',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('make', models.CharField(max_length=30)),
-                ('model', models.CharField(max_length=100)),
-                ('year', models.IntegerField()),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('zipcode', models.IntegerField()),
+                ('type_of_care', models.CharField(max_length=250)),
+                ('client_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='client', to=settings.AUTH_USER_MODEL)),
+                ('contractor_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='contractor', to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]
