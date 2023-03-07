@@ -46,7 +46,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
             # If added new columns through the User model, add them in this
             # create method. Example below:
 
-            is_client=validated_data['is_client']
+            
         )
         user.set_password(validated_data['password'])
         user.save()
