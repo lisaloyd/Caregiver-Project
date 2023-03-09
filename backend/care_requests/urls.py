@@ -30,9 +30,5 @@ urlpatterns = [
 
 
 
-# urlpatterns = [
-    # path('', views.user_cars), get and post
-    # path('all/', views.get_all_cars), allowany
-# ]
 
 

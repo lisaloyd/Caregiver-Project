@@ -24,7 +24,7 @@ def user_care_requests(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'GET':
-        care_requests = Care_Request.filter(user_id=request.user.id)
+        care_requests = Care_Request.objects.filter(client_id=request.user.id)
         serializer = Care_RequestSerializer(care_requests, many=True)
         return Response(serializer.data)
     
