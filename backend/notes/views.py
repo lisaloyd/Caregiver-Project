@@ -9,19 +9,22 @@ from .models import Note
 
 
 
-@api_view(['GET', 'PUT'])
+@api_view(['GET', 'PUT', 'DELETE'])
 @permission_classes([IsAuthenticated])
 def notes_detail(request, care_request_id, note_id):
-    
-    
+    note = get_object_or_404(Note, pk=note_id)
     if request.method == 'PUT':
-        note = get_object_or_404(Note, pk=note_id)
         serializer = NoteSerializer(note, data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
         return Response(serializer.erros, status=status.HTTP_400_BAD_REQUEST)
-        
+    elif request.method == 'GET':
+        serializer = NoteSerializer(note)
+        return Response(serializer.data) 
+    elif request.method == 'DELETE':
+        note.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
         
     
 @api_view(['POST', 'GET'])
