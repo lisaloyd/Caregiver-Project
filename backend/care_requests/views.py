@@ -13,7 +13,7 @@ def care_requests_list(request):
     serializer = Care_RequestSerializer(care_requests, many=True)
     return Response(serializer.data)
 
-@api_view(['PUT', 'GET'])
+@api_view(['PUT', 'GET', 'DELETE'])
 @permission_classes([IsAuthenticated])
 def user_care_requests(request, care_request_id):
     care_request = get_object_or_404(Care_Request, pk=care_request_id)
@@ -23,9 +23,12 @@ def user_care_requests(request, care_request_id):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
         return Response(serializer.erros, status=status.HTTP_400_BAD_REQUEST)
-    if request.method == 'GET':
+    elif request.method == 'GET':
         serializer = Care_RequestSerializer(care_request)
         return Response (serializer.data)
+    elif request.method == 'DELETE':
+        care_request.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
     
 @api_view(['POST', 'GET'])
 @permission_classes([IsAuthenticated])
