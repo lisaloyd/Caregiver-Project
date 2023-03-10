@@ -8,20 +8,40 @@ from .models import Note
 
 
 
-@api_view(['GET', 'POST'])
+
+@api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def notes_list(request):
+def notes_list(request, care_request_id):
     
+    if request.method == 'GET':
+        notes = Note.objects.filter(care_request_id=care_request_id)
+        serializer = NoteSerializer(notes, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def new_note(request, care_request_id):  
+
     if request.method == 'POST':
-        serializer = NoteSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save(user_request=request.user)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    elif request.method == 'GET':
-        user_requests = Note.objects.filter(user_request_id=request.user.id)
-        serializer = NoteSerializer(user_requests, many=True)
-        return Response(serializer.data)
+        note = NoteSerializer(data=request.data)
+        note.is_valid(raise_exception=True)
+        note.save(care_request_id=care_request_id)
+        return Response(note.data, status=status.HTTP_200_OK)
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        # serializer = NoteSerializer(data=request.data)
+        # if serializer.is_valid():
+        #     serializer.save(user_request=request.user)
+        #     return Response(serializer.data, status=status.HTTP_201_CREATED)
+        # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
     
 
