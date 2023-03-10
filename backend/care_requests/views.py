@@ -13,27 +13,27 @@ def care_requests_list(request):
     serializer = Care_RequestSerializer(care_requests, many=True)
     return Response(serializer.data)
 
-@api_view(['GET', 'PUT'])
+@api_view(['PUT'])
 @permission_classes([IsAuthenticated])
 def user_care_requests(request, care_request_id):
+    care_request = get_object_or_404(Care_Request, pk=care_request_id)
     
     
-    if request.method == 'GET':
-        care_requests = Care_Request.objects.filter(client_id=request.user.id)
-        serializer = Care_RequestSerializer(care_requests, many=True)
-        return Response(serializer.data)
-    elif request.method == 'PUT':
-        care_requests = get_object_or_404(Care_Request, pk=care_request_id)
-        serializer = Care_RequestSerializer(care_requests, data=request.data)
+    if request.method == 'PUT':
+        
+        serializer = Care_RequestSerializer(care_request, data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
         return Response(serializer.erros, status=status.HTTP_400_BAD_REQUEST)
     
-@api_view(['POST'])
+@api_view(['POST', 'GET'])
 @permission_classes([IsAuthenticated])
 def new_care_requests(request):
-
+    if request.method == 'GET':
+        care_request = Care_Request.objects.filter(client_id=request.user.id)
+        serializer = Care_RequestSerializer(care_request, many=True)
+        return Response(serializer.data)
     if request.method == 'POST':
         serializer = Care_RequestSerializer(data=request.data)
         if serializer.is_valid():
