@@ -4,6 +4,8 @@ import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import "./NavBarContractor.css";
 
+
+
 const NavBarContractor = () => {
   const { logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -12,14 +14,14 @@ const NavBarContractor = () => {
       <ul>
         <li className="brand">
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            <b>React/Django JWT</b>
+            <b>Caregiver and Contractors</b>
           </Link>
         </li>
         <li>
           {user ? (
             <button onClick={logoutUser}>Logout</button>
           ) : (
-            <button onClick={() => navigate("/login")}>Login</button>
+            <button onClick={() => navigate("/auth")}>Login/Register</button>
           )}
         </li>
       </ul>
