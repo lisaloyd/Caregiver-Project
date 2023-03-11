@@ -8,7 +8,8 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 
 // Component Imports
-import Navbar from "./components/NavBar/NavBar";
+import NavBarClient from "./components/NavBarClient/NavBarClient";
+import NavBarContractor from "./components/NavBarContractor/NavBarContractor";
 import Footer from "./components/Footer/Footer";
 
 // Util Imports

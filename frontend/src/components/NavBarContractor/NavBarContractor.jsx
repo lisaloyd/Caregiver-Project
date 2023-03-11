@@ -2,9 +2,9 @@ import React from "react";
 import { useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
-import "./NavBar.css";
+import "./NavBarContractor.css";
 
-const Navbar = () => {
+const NavBarContractor = () => {
   const { logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
   return (
@@ -27,4 +27,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavBarContractor;
