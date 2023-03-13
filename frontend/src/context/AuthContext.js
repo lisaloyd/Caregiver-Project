@@ -6,7 +6,7 @@ import jwtDecode from "jwt-decode";
 const AuthContext = createContext();
 
 export default AuthContext;
-
+// TODO Figure out client vs contractor
 function setUserObject(user) {
   if (!user) {
     return null;
