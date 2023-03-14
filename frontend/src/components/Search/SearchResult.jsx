@@ -11,7 +11,7 @@ const SearchResult = ({}) => {
         );
         if (response.data.care_request)
          setSearchOutcome(
-            response.data.zipcode.map((care_request) =>({
+            response.data.care_request.map((care_request) =>({
                 id: care_request.id.zipcode, 
             }))                          
           );
