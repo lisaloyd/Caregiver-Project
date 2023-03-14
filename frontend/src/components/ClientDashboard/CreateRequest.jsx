@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import axios from "axios";
 
-const CreateRequest = (props) => {
+// const CreateRequest = ({}) => {
+//     const [requestContractor, setRequestContractor] = useState({})
+
+//     asyc function getPermanentPosition()
     return (
         <div>
             CreateRequest

@@ -1,25 +1,30 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import ClientContext from "../../context/ClientContext";
+import useCustomForm from "../../hooks/useCustomForm";
+
 
 const Search = ({ getSearchOutcome }) => {
-    const [searchTerm, setSearchTerm] = useState("");
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if (typeof getSearchOutcome === "function") {
-            getSearchOutcome(searchTerm);
-        }
-    };
-
+    
+    const { submitSearch } = useContext(ClientContext);
+    const defaultValues = {
+        searchTerm: ""
+    }
+    const [formData, handleInputChange, handleSubmit] = useCustomForm(
+        defaultValues,
+        submitSearch
+      );
     return (
         <div className="search-bar">
             <h2>Search</h2>
             <form onSubmit={handleSubmit}>
-            <input 
-                type='search'
-                value={searchTerm}
-                onChange={(event) => setSearchTerm(event.target.value)}
+            <input
+              type="text"
+              name="searchTerm"
+              value={formData.searchTerm}
+              onChange={handleInputChange}
             />
-                <button tyle={{color: "white"}} to="/my-search">Search</button>
+            
+                <button style={{color: "white"}} >Search</button>
             </form>
         </div>
     );

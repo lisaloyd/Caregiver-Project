@@ -1,12 +1,13 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import cuid from "cuid";
 
+
 const ClientContext = createContext();
 
 export default ClientContext;
-
+//setSearchOutcome
 function setSearchObject(results) {
   if (!results) {
     return null;
@@ -17,9 +18,10 @@ function setSearchObject(results) {
   };
 }
 export const ClientProvider = ({ children }) => {
+ 
   const BASE_URL = "http://127.0.0.1:8000/api/care_requests/";
-  const [SearchObject, setSearchObject] = useState(setSearchObject(decodedUser));
-  
+  const [search, setSearch] = useState(null); //searchData
+  const [notes, setNotes] = useState([]);
 
   
   const [isServerError, setIsServerError] = useState(false);
@@ -32,8 +34,9 @@ export const ClientProvider = ({ children }) => {
       }
       let response = await axios.post(`${BASE_URL}/${id}/notes/`, finalData) // TODO make sure this matches the backend, ask about 1 in url
       if (response.status === 201) {
-        
+        setNotes([...notes, response.data])
         setIsServerError(false);
+
         navigate("/client");
       } else {
         navigate("/register"); // TODO if form fails go back to submission page to view error
@@ -49,12 +52,13 @@ export const ClientProvider = ({ children }) => {
       let response = await axios.get(`${BASE_URL}/zipcode/${searchData}`)
       if (response.status === 200) {
         setIsServerError(false);
+        setSearch(response.data);
         navigate("/search");
       } else {
         navigate("/error");
       }
     } catch (error) {
-      
+      console.log(error)
     }
   }
 
@@ -64,7 +68,10 @@ export const ClientProvider = ({ children }) => {
 
   const contextData = {
     submitNote,
+    submitSearch,
     isServerError,
+    search,
+    notes,
   };
 
   return (
