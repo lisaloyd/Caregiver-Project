@@ -1,6 +1,7 @@
 // import { createContext, useState, useContext } from "react";
 // import { useNavigate } from "react-router-dom";
 // import axios from "axios";
+// import cuid from "cuid";
 
 
 
@@ -26,7 +27,7 @@
   
 //   const [isServerError, setIsServerError] = useState(false);
 //   const navigate = useNavigate();
-//   const id = care_request.id;
+//   const id = cuid();
 //   const submitNote = async(noteData) => {
 //     try {
 //       let finalData = {
