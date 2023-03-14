@@ -17,7 +17,7 @@ const Search = ({ getSearchOutcome }) => {
             <input 
                 type='search'
                 value={searchTerm}
-                onChage={(event) => setSearchTerm(event.target.value)}
+                onChange={(event) => setSearchTerm(event.target.value)}
             />
                 <button tyle={{color: "white"}} to="/my-search">Search</button>
             </form>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
-import Search from './Search';
+
 
 const SearchResult = ({}) => {
     const [searchOutcome, setSearchOutcome] = useState([]);
@@ -22,5 +22,5 @@ const SearchResult = ({}) => {
             <Search getSearchOutcome={getSearchOutcome} />
         </div>
     )
-};
+
 export default SearchResult;

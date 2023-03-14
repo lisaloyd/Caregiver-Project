@@ -7,7 +7,6 @@ import Home from "./components/Home/Home";
 import Authentication from "./components/Authentication/Authentication";
 import ContractorDashboard from "./components/ContractorDashboard/ContractorDashboard";
 import ClientDashboard from "./components/ClientDashboard/ClientDashboard";
-import Search from "./components/Search/Search";
 
 // Component Imports
 import NavBarClient from "./components/NavBarClient/NavBarClient";
@@ -26,7 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/auth" element={<Authentication />} />
-        <Route path="/search" element={<Search />} />
+        
         <Route
           path="/client/"
           element={
