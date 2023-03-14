@@ -19,7 +19,7 @@ export const ClientProvider = ({ children }) => {
       let finalData = {
         note: registerData.note
       }
-      let response = await axios.post(`${BASE_URL}/1/notes/`, finalData) // TODO make sure this matches the backend, ask about 1 in url
+      let response = await axios.post(`${BASE_URL}/2/notes/`, finalData) // TODO make sure this matches the backend, ask about 1 in url
       if (response.status === 201) {
         
         setIsServerError(false);
