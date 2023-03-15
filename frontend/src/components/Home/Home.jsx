@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import Search from '../Search/Search';
 
 const Home = (props) => {
+    const {submitSearch} = props;
     return (
         <div>
             Home
-            < Search />
+            < Search submitSearch={submitSearch}/>
         </div>
     )
 }

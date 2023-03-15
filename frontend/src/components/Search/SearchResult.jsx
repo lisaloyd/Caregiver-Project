@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
-import axios from "axios";
 
 
-const SearchResult = ({}) => {
-    const [searchOutcome, setSearchOutcome] = useState([]);
-
-    async function getSearchOutcome(searchTerm) {
-        const response = await axios.get(
-            "http://127.0.0.1:8000/api/care_requests/all/"
-        );
-        if (response.data.care_request)
-         setSearchOutcome(
-            response.data.care_request.map((care_request) =>({
-                id: care_request.id.zipcode, 
-            }))                          
-          );
-        }    
-    }
+const SearchResult = (props) => {
+    const {results} = props
     return (
         <div>
-            <Search getSearchOutcome={getSearchOutcome} />
+            {
+                results ? (
+                    results.map(result => {
+                        (
+                            <div>
+                                <h1>{result.zip}</h1>
+                                <h2>{result.name}</h2>
+                            </div>
+                        )
+
+                    })
+                ): null
+            }
+           
         </div>
     )
-
+        }
 export default SearchResult;

@@ -1,10 +1,9 @@
 import React, { useState, useContext } from 'react';
 import useCustomForm from "../../hooks/useCustomForm";
-import ClientContext from "../../context/ClientContext";
 
 
 const ClientDashboard = (props) => {
-    const { submitNote } = useContext(ClientContext);
+    const { submitNote } = props;
     const defaultValues = {
         notes: ""
     }

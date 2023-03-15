@@ -9,10 +9,10 @@ li {
 }
 
 .navBar {
-  background: steelblue;
+  background: green !important;
   box-shadow: 4px 2px 5px gray;
   color: white;
-  margin-bottom: 2rem;
+  margin-bottom: 0 !important;
   padding: 1.5rem 2rem;
 }
 
@@ -20,7 +20,8 @@ li {
   background: transparent;
   border: 2px solid white;
   color: white;
-  padding: 0.4rem 0.5rem;
+  padding: 2rem 2rem;
+  width: 5rem !important;
 }
 
 .navBar button:hover {

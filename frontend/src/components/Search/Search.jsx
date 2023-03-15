@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
-import ClientContext from "../../context/ClientContext";
 import useCustomForm from "../../hooks/useCustomForm";
 
 
-const Search = ({ getSearchOutcome }) => {
+const Search = ( props ) => {
     
-    const { submitSearch } = useContext(ClientContext);
+    const { submitSearch } = props;
     const defaultValues = {
         searchTerm: ""
     }
@@ -24,7 +23,7 @@ const Search = ({ getSearchOutcome }) => {
               onChange={handleInputChange}
             />
             
-                <button style={{color: "white"}} >Search</button>
+                <button >Search</button>
             </form>
         </div>
     );

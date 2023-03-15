@@ -37,6 +37,8 @@ def new_care_requests(request):
         care_request = Care_Request.objects.filter(client_id=request.user.id)
         serializer = Care_RequestSerializer(care_request, many=True)
         return Response(serializer.data)
+    # if request.method == 'GET':
+    #     zip_code = Care_Request.objects.filter(zip_code=request.zipcode)
     if request.method == 'POST':
         serializer = Care_RequestSerializer(data=request.data)
         if serializer.is_valid():

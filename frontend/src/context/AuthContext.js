@@ -15,6 +15,8 @@ function setUserObject(user) {
     username: user.username,
     id: user.user_id,
     first_name: user.first_name,
+    is_contractor: user.is_contractor,
+    zipcode: user.zipcode,
   };
 }
 
@@ -35,6 +37,8 @@ export const AuthProvider = ({ children }) => {
         email: registerData.email,
         first_name: registerData.firstName,
         last_name: registerData.lastName,
+        is_contractor: registerData.is_contractor,
+        zipcode: registerData.zipcode,
       };
       let response = await axios.post(`${BASE_URL}/register/`, finalData);
       if (response.status === 201) {
