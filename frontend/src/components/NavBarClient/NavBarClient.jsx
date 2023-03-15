@@ -2,7 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
-import "./NavBarClient.css";
+
 
 const NavBarClient = () => {
   const { logoutUser, user } = useContext(AuthContext);
@@ -23,7 +23,7 @@ const NavBarClient = () => {
 };
 
 
-export default NavBarClient;
+ export default NavBarClient;
 {/* <li className="brand">
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
             <b>React/Django JWT</b>

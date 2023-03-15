@@ -1,4 +1,4 @@
-ul {
+/* ul {
   display: flex;
   justify-content: space-between;
   list-style-type: none;
@@ -9,7 +9,7 @@ li {
 }
 
 .navBar {
-  background: green !important;
+  background:blueviolet !important;
   box-shadow: 4px 2px 5px gray;
   color: white;
   margin-bottom: 0 !important;
@@ -33,4 +33,4 @@ li {
 .brand {
   cursor: pointer;
   font-size: 2rem;
-}
+} */

@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import AuthContext from "../../context/AuthContext";
 import useCustomForm from "../../hooks/useCustomForm";
 
-// TODO ADD REQUIREMENT TO CHOOSE EITHER CLIENT OR CONTRACTOR ON FORM AND SAVE AND SEND
+
 const Register = (props) => {
     const { registerUser } = useContext(AuthContext);
   const defaultValues = {
