@@ -1,8 +1,26 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 // import useCustomForm from "../../hooks/useCustomForm";
 
-// import React, { useState } from 'react';
+const ClientDashboard = ({}) => {
+  const [searchContractors, setSearchContractors] = useState([])
 
+  async function getSearchContractors(){
+    const response = await axios.get('http://127.0.0.1:8000/api/auth/users/');
+    if (response.data.is_contractors) {
+      setSearchContractors(
+        response.data.is_contractors.map((is_contractor) =>({
+          username: is_contractor.username.zipcode,
+        }))
+      )
+    }
+  }
+  return (  
+
+  );
+}
+ 
+export default ClientDashboard;
 
 
 
