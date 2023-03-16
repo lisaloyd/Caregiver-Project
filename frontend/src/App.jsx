@@ -1,7 +1,6 @@
 // General Imports
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
-// import cuid from "cuid";
 // import axios from "axios";
 import "./App.css";
 
@@ -13,8 +12,7 @@ import "./App.css";
 import LoginPage from "./pages/LoginPage/LoginPage";
 
 // Component Imports
-//  NavBarClient from "./components/NavBarClient/NavBarClient";
-// import NavBarContractor from "./components/NavBarContractor/NavBarContractor";
+
 import Footer from "./components/Footer/Footer";
 
 // Util Imports
@@ -26,11 +24,11 @@ import DashboardPage from "./pages/DashboardPage/DashboardPage";
 function App() {
   return (
     <div>
-       <Navbar/> 
+       <Navbar/>
+       {/* <ClientDashboard/>  */}
       <Routes>
         <Route path='/' element={<LoginPage/>}/>
         <Route path="/dashboard" element={<DashboardPage />} />
-        {/* <Route path="/auth" element={<Authentication />} /> */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
       </Routes>
