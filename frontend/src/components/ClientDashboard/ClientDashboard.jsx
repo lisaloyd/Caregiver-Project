@@ -24,8 +24,6 @@ let userDetails= allResponse.filter(data=>{
   console.log("userDetails",userDetails)
 }
 
-  
-
   async function getSearchContractors(){
     const response = await axios.get('http://127.0.0.1:8000/api/auth/users/');
     console.log("res",response.data)

@@ -8,7 +8,7 @@ import "./App.css";
 // import Home from "./components/Home/Home";
 // import Authentication from "./components/Authentication/Authentication";
 // import ContractorDashboard from "./components/ContractorDashboard/ContractorDashboard";
-// import ClientDashboard from "./components/ClientDashboard/ClientDashboard";
+import ClientDashboard from "./components/ClientDashboard/ClientDashboard";
 import LoginPage from "./pages/LoginPage/LoginPage";
 
 // Component Imports
@@ -24,13 +24,13 @@ import DashboardPage from "./pages/DashboardPage/DashboardPage";
 function App() {
   return (
     <div>
-       <Navbar/>
-       {/* <ClientDashboard/>  */}
+       <Navbar/>  
       <Routes>
         <Route path='/' element={<LoginPage/>}/>
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/clientdashboard" element={<ClientDashboard />} />
       </Routes>
       <Footer />
     </div>
