@@ -26,34 +26,46 @@ const ContractorDashboard = (props) => {
   };
   console.log("date", date);
   return (
-    
-      <div className="main">
-        <div className="search_container">
+    <div className="main">
+      <div style={{textAlign:"center"}}>
+      <div className="search_container">
         <input
           type="text"
           onChange={(e) => setZipcode(e.target.value)}
           className="form-control"
-          placeholder="Please type zipcode here..."
-          style={{ width: "50%" }}
+          placeholder="Type zipcode here..."
+          style={{ width: "45%" }}
         />
-        <button onClick={submit}>Submit</button>
-        </div>
-       
-        {userdetails.map((data) => {
-          return (
-            <>
-              <p>
-                Client Id :{data.client_id} Type of Care :{data?.type_of_care}
-              </p>
-              ;
-            </>
-          );
-        })}
-        <input type="date" onChange={(e) => setDate(e.target.value)} />
+        <button className="submit" onClick={submit}>
+          Submit
+        </button>
+      </div>
+
+      {userdetails.map((data) => {
+        return (
+          <>
+            <p>
+              Client Id :{data.client_id} Type of Care :{data?.type_of_care}
+            </p>
+            ;
+          </>
+        );
+      })}
+      </div>
+      <div>
+        <div>
+        <input
+        className="form-control"
+        style={{ width: "100%" }}
+        type="date"
+        onChange={(e) => setDate(e.target.value)}
+      />
       {<p>I will be available on {date} </p>}
+        </div>
+
       </div>
       
-    
+    </div>
   );
 };
 export default ContractorDashboard;

@@ -8,6 +8,7 @@ import "./App.css";
 // import Home from "./components/Home/Home";
 // import Authentication from "./components/Authentication/Authentication";
 // import ContractorDashboard from "./components/ContractorDashboard/ContractorDashboard";
+import ContractorDashboard from "./components/ContractorDashboard/ContractorDashboard";
 import ClientDashboard from "./components/ClientDashboard/ClientDashboard";
 import LoginPage from "./pages/LoginPage/LoginPage";
 
@@ -26,11 +27,12 @@ function App() {
     <div>
        <Navbar/>  
       <Routes>
-        {/* <Route path='/' element={<LoginPage/>}/> */}
         <Route path="/" element={<DashboardPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/contractordashboard" element={<ContractorDashboard />} />
         <Route path="/clientdashboard" element={<ClientDashboard />} />
+        
       </Routes>
       <Footer />
     </div>
