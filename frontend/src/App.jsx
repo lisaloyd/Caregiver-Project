@@ -25,9 +25,14 @@ import DashboardPage from "./pages/DashboardPage/DashboardPage";
 function App() {
   return (
     <div>
-       <Navbar/>  
+      <Navbar/>  
       <Routes>
-        <Route path="/" element={<DashboardPage />} />
+          <Route path="/" element={
+            <PrivateRoute>
+              <DashboardPage />
+            </PrivateRoute>
+          } 
+        />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/contractordashboard" element={<ContractorDashboard />} />

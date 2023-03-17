@@ -10,7 +10,7 @@ const DashboardPage = ({}) => {
 
   return (
     <div>
-      {user.is_contractor ? <ContractorDashboard /> : <ClientDashboard />}
+      {user?.is_contractor ? <ContractorDashboard /> : <ClientDashboard />}
     </div>
   );
 };
