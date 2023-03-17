@@ -5,13 +5,13 @@ import axios from 'axios';
 const ClientDashboard = () => {
   const [searchContractors, setSearchContractors] = useState([])
   const [allResponse, setAllResponse] = useState([])
-const[user,setUser]=useState()
-const[userdetails,setUserdetails]=useState([])
-const [flag,setFlag]=useState(false)
-const [show,setShow]=useState(false)
-const [quary,setQueary]=useState('')
-const [date,setDate]=useState(new Date)
-console.log("quary and date",quary,date)
+  const[user,setUser]=useState()
+  const[userdetails,setUserdetails]=useState([])
+  const [flag,setFlag]=useState(false)
+  const [show,setShow]=useState(false)
+  const [quary,setQueary]=useState('')
+  const [date,setDate]=useState(new Date)
+  console.log("quary and date",quary,date)
 
 useEffect(()=>{
   getSearchContractors()
@@ -52,7 +52,7 @@ let userDetails= allResponse.filter(data=>{
            <p>{quary}</p>
          <p>{date}</p>
          </div>
-         :null
+         :null 
         }
       </div>
       :null

@@ -1,15 +1,24 @@
-// import React, { useState } from 'react';
+// import React, { useState, useEffect } from 'react';
 // import axios from "axios";
 
-//  const CreateRequest = ({}) => {
-//      const [requestContractor, setRequestContractor] = useState({})
+//  const CreateRequest = ({user}) => {
+//      const [requestedContractor, setRequestedContractor] = useState([])
+//      const [contractorDetails, setContractorDetails] = useState([])
+
+// useEffect (() =>{
+//     getRequestedContractor()
+// },[])
+// const submit=() => {
+// let contractorDetails = 
+// }
+
 
 //      async function getPermanentPosition(contractor_id) {
 //         let response = await axios.get (
 //             `http://127.0.0.1:8000/api/care_requests/${contractor_id}/`
 //         );
 
-//         setRequestContractor(response.data);
+//         setRequestedContractor(response.data);
 //      }
 //     return (
 //         <div>
