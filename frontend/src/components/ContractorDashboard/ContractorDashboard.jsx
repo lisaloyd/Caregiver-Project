@@ -30,10 +30,11 @@ const ContractorDashboard = (props) => {
   useEffect(() => {
     leaveNotesForClient();
   }, []);
-  async function leaveNotesForClient(careRequestId, notesId) {
-    const response = await axios.put(
-      `http://127.0.0.1:8000/api/care_requests/${careRequestId}/notes/${notesId}`
+  async function leaveNotesForClient(careRequestId) {
+    const response = await axios.post(
+      `http://127.0.0.1:8000/api/care_requests/${careRequestId}/notes/`
     );
+    console.log("Notes:", response.data)
     setLeaveNotes(response.data);
   }
 
