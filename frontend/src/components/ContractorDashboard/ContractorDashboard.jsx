@@ -6,6 +6,8 @@ const ContractorDashboard = (props) => {
   const [userdetails, setUserdetails] = useState([]);
   const [allResponse, setAllResponse] = useState([]);
   const [date, setDate] = useState();
+  const [leaveNotes, setLeaveNotes] = useState([])
+  
 
   useEffect(() => {
     getSearchContractors();
@@ -14,7 +16,7 @@ const ContractorDashboard = (props) => {
     const response = await axios.get(
       "http://127.0.0.1:8000/api/care_requests/all/"
     );
-    console.log("res", response.data);
+    // console.log("res", response.data);
     setAllResponse(response.data);
   }
   const submit = () => {
@@ -22,9 +24,19 @@ const ContractorDashboard = (props) => {
       return data.zipcode == zipcode;
     });
     setUserdetails(userDetails);
-    console.log("userDetails", userDetails);
+    // console.log("userDetails", userDetails);
   };
-  console.log("date", date);
+  // console.log("date", date);
+  useEffect(() => {
+    leaveNotesForClient();
+  }, []);
+  async function leaveNotesForClient(careRequestId, notesId) {
+    const response = await axios.put(
+      `http://127.0.0.1:8000/api/care_requests/${careRequestId}/notes/${notesId}`
+    );
+    setLeaveNotes(response.data);
+  }
+
   return (
     <div className="main">
       <div style={{textAlign:"center"}}>

@@ -75,7 +75,7 @@ const ClientDashboard = () => {
         type="text"
         onChange={(e) => setUser(e.target.value)}
         className="form-control"
-        placeholder="Please type zipcode here..."
+        placeholder="Type zipcode here..."
         style={{ width: "20%" }}
       />
       <button onClick={submit}>Submit</button>
@@ -95,7 +95,7 @@ const ClientDashboard = () => {
             type="text"
             className="form-control"
             onChange={(e) => setTypeOfCare(e.target.value)}
-            placeholder="Please write something here..."
+            placeholder="Type care request here..."
             style={{ width: "60%" }}
           />
           <button onClick={handlesubmit}>Submit</button>
