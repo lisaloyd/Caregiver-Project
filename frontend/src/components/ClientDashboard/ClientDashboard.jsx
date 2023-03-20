@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import './ClientDashboard.css'
 
 const ClientDashboard = () => {
   const [searchContractors, setSearchContractors] = useState([]);
@@ -47,7 +48,7 @@ const ClientDashboard = () => {
     getAllHepRequest()
   }
   const handlesubmit = async () => {
-    const token =localStorage.getItem("token")
+    const token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgwMTY1NTQ3LCJpYXQiOjE2NzkzMDE1NDcsImp0aSI6IjM2ZDliZjQzODc3ZDQzNzNiMDg0YjdkYjY3MmU4YzY3IiwidXNlcl9pZCI6MywiaXNfY29udHJhY3RvciI6ZmFsc2UsInVzZXJuYW1lIjoiYmV0aHRob21wc29uIiwiZmlyc3RfbmFtZSI6IiIsInppcGNvZGUiOjc4MjEwfQ.-upgvSoaTJlGwRrhB2Yo6ADaNDZCZo0zRtgeYHXuKGQ"
      
     let data = {
       zipcode: user,
@@ -70,23 +71,24 @@ const ClientDashboard = () => {
 
   };
   return (
-    <div>
+    <div className="main">
+      <div>
       <input
         type="text"
         onChange={(e) => setUser(e.target.value)}
         className="form-control"
         placeholder="Type zipcode here..."
-        style={{ width: "20%" }}
+        style={{ width: "100%" }}
       />
-      <button onClick={submit}>Submit</button>
+      <button className="submit" onClick={submit}>Submit</button>
       {userdetails.map((data) => {
         return data?.is_contractor &&
         <>
     
-         <p>{data?.username}</p>;
+         <p>{data?.username}</p>
          </>
       })}
-      <button onClick={() => setFlag(true)} className="btn-success">
+      <button className="submit" onClick={() => setFlag(true)} >
         Help
       </button>
       {flag ? (
@@ -96,9 +98,9 @@ const ClientDashboard = () => {
             className="form-control"
             onChange={(e) => setTypeOfCare(e.target.value)}
             placeholder="Type care request here..."
-            style={{ width: "60%" }}
+            style={{ width: "100%" }}
           />
-          <button onClick={handlesubmit}>Submit</button>
+          <button className="submit" onClick={handlesubmit}>Submit</button>
           {show ? (
             <div>
               <p>{typeofCare}</p>
@@ -106,13 +108,13 @@ const ClientDashboard = () => {
           ) : null}
         </div>
       ) : null}
-      <input type="text" onChange={(e)=>setId(e.target.value)} placeholder="Type Id here" />
-      <button onClick={idSubmit}>Submit</button>
+      {/* <input type="text" onChange={(e)=>setId(e.target.value)} placeholder="Type Id here" /> */}
+      {/* <button onClick={idSubmit}>Submit</button> */}
 
           <div>
             <p>{allHelpRequest?.type_of_care}</p>
           </div>
-
+          </div>
     </div>
   );
 };
