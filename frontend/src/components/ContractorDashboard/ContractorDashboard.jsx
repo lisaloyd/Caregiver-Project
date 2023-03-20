@@ -46,7 +46,7 @@ const ContractorDashboard = (props) => {
           type="text"
           onChange={(e) => setZipcode(e.target.value)}
           className="form-control"
-          placeholder="Type zipcode here..."
+          placeholder="Type zipcode..."
           style={{ width: "45%" }}
         />
         <button className="submit" onClick={submit}>
